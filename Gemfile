@@ -56,6 +56,8 @@ group :development, :test do
 
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
+  gem "guard"
+  gem "guard-minitest"
 end
 
 group :development do
@@ -67,6 +69,7 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "minitest-reporters"
 end
 
 gem "hotwire-spark", "~> 0.1.13", group: :development
