@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root "store#index", as: "store_index"
   resources :products
   # config/routes.rb
   mount ActiveStorage::Engine => "/rails/active_storage"
