@@ -1,0 +1,28 @@
+
+<% if line_item ==  @line_item %>
+  <div class="grid grid-cols-[auto_auto_1fr_auto_auto] items-center gap-2 py-2 border-b line-items-highlight">
+<% else %>
+  <div class="grid grid-cols-[auto_auto_1fr_auto_auto] items-center gap-2 py-2 border-b">
+<% end %>
+  <div class="text-right">
+    <%= line_item.quantity %>
+  </div>
+
+  <div>
+    &times;
+  </div>
+
+  <%# <div class="whitespace-nowrap"> %>
+    <div class="min-w-0 break-words">
+    <%= line_item.product.title %>
+  </div>
+
+<div class="text-red-500 md:text-blue-500 hover:text-green-500">
+    <%= number_to_currency(line_item.total_price) %>
+  </div>
+
+  <div>
+    <%= button_to 'Delete Item', line_item, method: :delete,
+          class: 'rounded-lg py-1 px-2 text-white bg-amber-400 hover:bg-amber-600 transition-colors' %>
+  </div>
+</div>

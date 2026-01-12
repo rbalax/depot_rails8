@@ -1,0 +1,55 @@
+.line-items-highlight {
+  /* couleur de départ */
+  animation: line-items-highlight 1s ease-in-out;
+}
+
+/* @keyframes line-items-highlight {
+  0% {
+    background-color: rgb(255, 136, 245);
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+.line-items-highlight {
+  animation: line-items-flicker 3s linear;
+} */
+
+@keyframes line-items-highlight {
+  0% {
+    color: inherit;
+    transform: scale(1) translateX(0);
+  }
+
+  45% {
+    color: #ef4444;
+    transform: scale(1.2) translateX(0);
+  }
+
+  48% {
+    transform: scale(1.2) translateX(-3px);
+  }
+
+  52% {
+    transform: scale(1.2) translateX(3px);
+  }
+
+  56% {
+    transform: scale(1.2) translateX(-2px);
+  }
+
+  60% {
+    transform: scale(1.2) translateX(2px);
+  }
+
+  65% {
+    transform: scale(1.2) translateX(0);
+  }
+
+  100% {
+    color: inherit;
+    transform: scale(1) translateX(0);
+  }
+}
