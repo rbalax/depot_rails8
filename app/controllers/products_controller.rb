@@ -3,7 +3,8 @@ class ProductsController < ApplicationController
 
   # GET /products or /products.json
   def index
-    @products = Product.all
+    # @products = Product.all
+    @products = Product.order(:title).includes(:image_attachment)
   end
 
   # GET /products/1 or /products/1.json

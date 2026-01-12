@@ -1,0 +1,8 @@
+<!-- app/views/layouts/_cart.html.erb -->
+  <% if cart && !cart.line_items.empty? %>
+<div id="cart" class="bg-white rounded p-2">
+    <%= render cart %>
+  <% else %>
+    <div id="cart"></div>
+  <% end %>
+</div>
