@@ -4,7 +4,8 @@ class Product < ApplicationRecord
  has_many :carts, through: :line_items
  before_destroy :ensure_not_referenced_by_any_line_item
 
- after_commit -> { broadcast_refresh_later_to "products" }
+
+
  validates :title, :description, :image, presence: true
  validates :title, uniqueness: true
  validate :acceptable_image
