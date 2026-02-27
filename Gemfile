@@ -24,6 +24,7 @@ gem "jbuilder"
 gem "unsplash"
 gem "httparty"
 gem "database_cleaner", "~> 2.0", ">= 2.0.2"
+gem "annotaterb", "~> 4.20"
 
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
