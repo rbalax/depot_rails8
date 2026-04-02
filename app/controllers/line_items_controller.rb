@@ -1,8 +1,8 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_cart, only: [ :create ]
-  before_action :set_line_item, only: [ :show, :edit, :update, :destroy ]
-  rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
+before_action :set_cart, only: [ :create, :decrement ]
+before_action :set_line_item, only: [ :show, :edit, :update, :destroy, :decrement ]
+rescue_from ActiveRecord::RecordNotFound, with: :invalid_product
 
   def index
     @line_items = LineItem.all
@@ -54,6 +54,13 @@ end
     end
   end
 
+def decrement
+  @line_item = @cart.decrement_product(@line_item.product)
+  respond_to do |format|
+    format.turbo_stream
+    format.html { redirect_to store_index_path }
+  end
+end
   private
 
   def set_line_item

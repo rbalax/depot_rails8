@@ -73,5 +73,3 @@ group :test do
   gem "selenium-webdriver"
   gem "minitest-reporters"
 end
-
-gem "hotwire-spark", "~> 0.1.13", group: :development
