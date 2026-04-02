@@ -158,10 +158,6 @@ GEM
       guard-compat (~> 1.2)
       minitest (>= 3.0)
     hashie (5.0.0)
-    hotwire-spark (0.1.13)
-      listen
-      rails (>= 7.0.0)
-      zeitwerk
     httparty (0.23.1)
       csv
       mini_mime (>= 1.0.0)
@@ -487,7 +483,6 @@ DEPENDENCIES
   debug
   guard
   guard-minitest
-  hotwire-spark (~> 0.1.13)
   httparty
   image_processing (~> 1.2)
   importmap-rails

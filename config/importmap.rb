@@ -7,3 +7,8 @@ pin "@hotwired/stimulus-loading", to: "stimulus-loading.js"
 pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@rails/actioncable", to: "actioncable.esm.js"
 pin_all_from "app/javascript/channels", under: "channels"
+pin "turbo" # @2.8.11
+pin "child_process" # @2.1.0
+pin "fs" # @2.1.0
+pin "path" # @2.1.0
+pin "process" # @2.1.0

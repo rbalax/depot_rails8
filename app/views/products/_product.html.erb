@@ -11,15 +11,15 @@
 
   <div>
   <strong class="block font-medium mb-1">Image:</strong>
-  <% if product.image.attached? %>
-    <%= image_tag url_for(product.image), alt: product.title, class: "w-64 h-auto rounded shadow" %>
-  <% elsif product.image_url.present? %>
-    <%= image_tag product.image_url, alt: product.title, class: "w-64 h-auto rounded shadow" %>
-  <% elsif product.image_name.present? %>
-    <%= image_tag asset_path(product.image_name), alt: product.title, class: "w-64 h-auto rounded shadow" %>
-  <% else %>
-    <em>No image available</em>
-  <% end %>
+    <% if product.image.attached? %>
+      <%= image_tag url_for(product.image), alt: product.title, class: "w-64 h-auto rounded shadow" %>
+    <% elsif product.image_url.present? %>
+      <%= image_tag product.image_url, alt: product.title, class: "w-64 h-auto rounded shadow" %>
+    <% elsif product.image_name.present? %>
+      <%= image_tag asset_path(product.image_name), alt: product.title, class: "w-64 h-auto rounded shadow" %>
+    <% else %>
+      <em>No image available</em>
+    <% end %>
 </div>
 
 
