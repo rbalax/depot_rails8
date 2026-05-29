@@ -1,0 +1,18 @@
+<tr>
+  <td>
+    <% if line_item_mailer.product.image.attached? %>
+      <%= image_tag line_item_mailer.product.image,
+          width: 80,
+          height: 100 %>
+    <% end %>
+  </td>
+
+  <td>
+    <%= line_item_mailer.quantity %>
+    &times;
+  </td>
+
+  <td>
+    <%= line_item_mailer.product.title %>
+  </td>
+</tr>
