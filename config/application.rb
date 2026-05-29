@@ -23,5 +23,16 @@ module Depot
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_mailer.delivery_method = :smtp
+
+config.action_mailer.smtp_settings = {
+  address: "smtp.mail.yahoo.com",
+  port: 587,
+  domain: "yahoo.com",
+  user_name: ENV["YAHOO_USERNAME"],
+  password: ENV["YAHOO_APP_PASSWORD"],
+  authentication: :plain,
+  enable_starttls_auto: true
+}
   end
 end
