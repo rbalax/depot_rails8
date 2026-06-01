@@ -31,7 +31,7 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        OrderMailer.received(@order).deliver_now
+        ChargeOrderJob.perform_later(@order, pay_type_params.to_h)
         format.html { redirect_to store_index_url, notice: "Thank you for your order." }
         format.json { render :show, status: :created, location: @order }
       else
@@ -84,10 +84,25 @@ class OrdersController < ApplicationController
         :po_number
       ])
     end
-
-    def ensure_cart_isnt_empty
-      if @cart.line_items.empty?
-        redirect_to store_index_path, notice: "Your cart is empty"
-      end
+def pay_type_params
+  permitted_attributes =
+    case order_params[:pay_type]
+    when "Credit card"
+      %i[credit_card_number expiration_date]
+    when "Check"
+      %i[routing_number account_number]
+    when "Purchase order"
+      %i[po_number]
+    else
+      []
     end
+  params.require(:order).permit(*permitted_attributes)
+end
+
+
+def ensure_cart_isnt_empty
+  if @cart.line_items.empty?
+      redirect_to store_index_path, notice: "Your cart is empty"
+  end
+  end
 end
