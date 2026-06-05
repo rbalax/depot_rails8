@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin - Pragprog Books</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body class="bg-gray-100">
+
+    <!-- HEADER (same green branding as main layout) -->
+    <header class="bg-green-700 flex items-center px-4 py-3">
+      <%= image_tag "logo.png",
+            class: "w-24 h-16",
+            alt: "The Pragmatic Bookshelf" %>
+
+      <h1 class="text-white text-xl font-bold ml-4">
+        Admin Dashboard
+      </h1>
+    </header>
+
+    <div class="flex">
+
+      <!-- SIDEBAR -->
+      <aside class="bg-green-900 w-64 min-h-screen p-6">
+        <nav>
+          <ul class="text-gray-200 space-y-3">
+            <li><%= link_to "Users", users_path, class: "hover:text-white" %></li>
+            <li><%= link_to "Orders", orders_path, class: "hover:text-white" %></li>
+            <li><%= link_to "Store", store_index_path, class: "hover:text-white" %></li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <main class="flex-1 p-6">
+        <%= yield %>
+      </main>
+
+    </div>
+
+  </body>
+</html>

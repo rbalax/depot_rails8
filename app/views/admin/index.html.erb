@@ -1,0 +1,48 @@
+<div class="w-full">
+
+  <h1 class="text-2xl font-bold text-gray-800 mb-4">
+    Welcome
+  </h1>
+
+  <div class="bg-white rounded-md shadow p-4 mb-6 border border-gray-200">
+    <p class="text-gray-700">
+      It's <span class="font-medium"><%= Time.current.to_fs(:long) %></span>.
+    </p>
+
+    <p class="mt-2 text-gray-700">
+      We have
+      <span class="font-semibold"><%= pluralize(@total_orders, "order") %></span>
+      and
+      <span class="font-semibold"><%= pluralize(@total_users, "user") %></span>.
+    </p>
+  </div>
+
+  <h2 class="text-xl font-semibold text-gray-800 mb-3">
+    Recent Orders
+  </h2>
+
+  <div class="bg-white shadow rounded-md border border-gray-200 overflow-x-auto">
+    <table class="w-full text-sm">
+      <thead class="bg-green-700 text-white">
+        <tr>
+          <th class="text-left p-3">ID</th>
+          <th class="text-left p-3">Date</th>
+          <th class="text-left p-3">Total Price</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200">
+        <% @recent_orders.each do |order| %>
+          <tr class="hover:bg-gray-50">
+            <td class="p-3"><%= order.id %></td>
+            <td class="p-3"><%= l(order.created_at, format: :short) %></td>
+            <td class="p-3 font-medium text-gray-800">
+              <%= number_to_currency(order.total_price) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+</div>
