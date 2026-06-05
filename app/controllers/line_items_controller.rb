@@ -1,4 +1,5 @@
 class LineItemsController < ApplicationController
+  allow_unauthenticated_access only: %i[ create ]
   include CurrentCart
 before_action :set_cart, only: [ :create, :decrement ]
 before_action :set_line_item, only: [ :show, :edit, :update, :destroy, :decrement ]

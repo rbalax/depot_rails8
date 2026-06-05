@@ -3,6 +3,7 @@ require "test_helper"
 class LineItemsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @cart = carts(:one)
+    login_as users(:one)
     @line_item = line_items(:one)
     @line_item.cart = @cart
     @line_item.save!

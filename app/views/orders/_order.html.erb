@@ -15,4 +15,46 @@
     <strong class="block font-medium mb-1">Pay type:</strong>
     <%= order.pay_type %>
   </div>
+  <div>
+    <div>
+  <strong class="block font-medium mb-2">Line Items:</strong>
+
+  <div class="overflow-x-auto">
+    <table class="w-full text-sm border border-gray-200 rounded-md">
+      <thead class="bg-gray-100">
+        <tr>
+          <th class="text-left p-2">Product</th>
+          <th class="text-left p-2">Quantity</th>
+          <th class="text-left p-2">Unit Price</th>
+          <th class="text-left p-2">Total</th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200">
+        <% order.line_items.each do |item| %>
+          <tr>
+            <td class="p-2">
+              <%= item.product.title %>
+            </td>
+
+            <td class="p-2">
+              <%= item.quantity %>
+            </td>
+
+            <td class="p-2">
+              <%= number_to_currency(item.product.price) %>
+            </td>
+
+            <td class="p-2 font-medium">
+              <%= number_to_currency(item.total_price) %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  </div>
+
 </div>
