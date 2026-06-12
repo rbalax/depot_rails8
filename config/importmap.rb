@@ -12,3 +12,5 @@ pin "child_process" # @2.1.0
 pin "fs" # @2.1.0
 pin "path" # @2.1.0
 pin "process" # @2.1.0
+pin "trix"
+pin "@rails/actiontext", to: "actiontext.esm.js"
