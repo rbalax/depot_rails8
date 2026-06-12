@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  get "support_requests/index"
+  get "support_requests/update"
   get "admin" => "admin#index"
 
   get "up" => "rails/health#show",
       as: :rails_health_check
+  resources :support_requests, only: %i[ index update ]
 
   resources :users
   resources :products

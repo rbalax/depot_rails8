@@ -49,13 +49,17 @@ class UsersController < ApplicationController
 
   # DELETE /users/1 or /users/1.json
   def destroy
-    @user.destroy!
-    rescue ActiveRecord::RecordNotDestroyed => e
-    respond_to do |format|
-      format.html { redirect_to users_path, notice: "User was successfully destroyed.", status: :see_other }
-      format.json { head :no_content }
-    end
-  end
+  @user.destroy!
+
+  redirect_to users_path,
+              notice: "User was successfully destroyed.",
+              status: :see_other
+
+rescue ActiveRecord::RecordNotDestroyed => e
+  redirect_to users_path,
+              alert: e.message,
+              status: :see_other
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.
